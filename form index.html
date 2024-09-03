@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PAYMENT FORM </FORM></title>
+</head>
+<body>
+    <form action="">
+        <h1>PAYMENT FORM</h1>
+        <h2>Cantact Information</h2>
+        <p>Name: *  <input type="text" name="name" required></p>
+        <p>
+            <fieldset>
+                <legend>Gender</legend>
+            Male <input type="radio" name="gender" id="gender" required>
+            Female <input type="radio" name="gender" id="gender">
+        </p></fieldset>
+        <p>Address <small>(Optional)</small>:
+            <br>
+             <textarea name="adress" id="address" cols="100" rows="8" ></textarea></p>
+        <p>Email: * <input type="email" name="email" id="email"required></p>
+        <p>pincode: <input type="number" name="pincode" id="pincode"></p>
+        <h2>Payment method </h2>
+        <p>Payment Method *
+            <select name="Payment method" id="Payment method" required>
+            <option value="" ---Select a Payment Method></option>
+            <option value="easypaisa">easypaisa</option>
+            <option value="Jazz cash">Jazz cash</option>
+            <option value="U paisa">U paisa</option>
+        </select>
+
+
+        </p>
+        <p>
+            Account Number * <input type="number" name="Account number" id="Account number" required>
+        </p>
+        <input type="submit" value="Pay Now ">
+    </form>
+</body>
+</html>
