@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sign Up</title>
+    <style>
+        .error {
+            color: red;
+        }
+    </style>
+</head>
+<body>
+    <form id="signupForm" onsubmit="return validateForm()">
+        <h1>Sign Up</h1>
+        First Name: <input type="text" name="firstName" id="firstName" required>
+        Last Name: <input type="text" name="lastName" id="lastName" required>
+        <br><br>
+        
+        Email: <input type="email" name="email" id="email" required>
+        <br><br>
+        
+        Password: <input type="password" name="password" id="password" required>
+        <br><br>
+        
+        Confirm Password: <input type="password" name="confirmPassword" id="confirmPassword" required>
+        <br><br>
+        
+        <span id="error" class="error"></span>
+        <br><br>
+        
+        <button type="submit">Sign Up</button>
+    </form>
+    
+    <script>
+        function validateForm() {
+            // Clear previous error message
+            document.getElementById('error').textContent = '';
+
+            var password = document.getElementById('password').value;
+            var confirmPassword = document.getElementById('confirmPassword').value;
+
+            // Check if passwords match
+            if (password !== confirmPassword) {
+                document.getElementById('error').textContent = 'Passwords do not match.';
+                return false; // Prevent form submission
+            }
+
+            // Regular expression for password validation
+            var passwordPattern = /^(?=.*[a-zA-Z])(?=.*\d)(?=.*[\W_]).{8,}$/;
+
+            // Check if password meets the criteria
+            if (!passwordPattern.test(password)) {
+                document.getElementById('error').textContent = 'Password must be at least 8 characters long, include letters, numbers, and special characters.';
+                return false; // Prevent form submission
+            }
+
+            // Store the email and password (in a real app, you'd hash and secure this)
+            localStorage.setItem('email', document.getElementById('email').value);
+            localStorage.setItem('password', password);
+
+            return true; // Allow form submission
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login Form</title>
+    <style>
+        .error {
+            color: red;
+        }
+    </style>
+</head>
+<body>
+    <form id="loginForm" onsubmit="return validateLogin()">
+        <h1>Login</h1>
+       User name & Email: <input type="User name & email"required>
+        <br><br>
+        
+        Password: <input type="password" id="loginPassword" required>
+        <br><br>
+        
+        <span id="loginError" class="error"></span>
+        <br><br>
+        
+        <button type="submit">Login</button>
+    </form>
+    
+    <script>
+        function validateLogin() {
+            // Clear previous error message
+            document.getElementById('loginError').textContent = '';
+
+            var email = document.getElementById('loginEmail').value;
+            var password = document.getElementById('loginPassword').value;
+
+            // Retrieve stored email and password
+            var storedEmail = localStorage.getItem('email');
+            var storedPassword = localStorage.getItem('password');
+
+            // Check if credentials match
+            if (email === storedEmail && password === storedPassword) {
+                return true; // Allow login
+            } else {
+                document.getElementById('loginError').textContent = 'Invalid email or password.';
+                return false; // Prevent login
+            }
+        }
+    </script>
+</body>
+</html>
